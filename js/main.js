@@ -23,23 +23,31 @@ tabla.append(tr)
 tr.append(thNombre, thApellido, thEdad, thEmail, thTelefono)
 container.appendChild(tabla);
 
-thNombre.addEventListener('click', async (e) => {
-    if (temporal == "Des") {
-        ordenarAsc();
-    }else if(temporal == "Asc"){
-        Default();
-    }else if(temporal == "Default"){
-        ordenarDes();
-    }
-})
+function ordenamiento(seccion){
+    seccion.addEventListener('click', async (e) => {
+        if (temporal == "Des") {
+            ordenarAsc();
+        }else if(temporal == "Asc"){
+            Default();
+        }else if(temporal == "Default"){
+            ordenarDes();
+        }
+    })
+}
 
-/*function Default(){
+ordenamiento(thNombre);
+ordenamiento(thApellido);
+ordenamiento(thEdad);
+ordenamiento(thEmail);
+ordenamiento(thTelefono);
+
+function Default(){
     temporal = "Default" 
     tabla.innerHTML = "";
     tabla.append(tr)
     tr.append(thNombre, thApellido, thEdad, thEmail, thTelefono)
     mostrarDatos();
-}*/
+}
 
 function ordenarAsc() {
     temporal = "Asc"
